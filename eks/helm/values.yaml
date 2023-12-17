@@ -1,0 +1,9 @@
+image:
+  repository: pkuttiya/epoch-time-api
+  tag: latest
+
+containerPort: 5000
+
+service:
+  port: 8080
+  targetPort: 5000

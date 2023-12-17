@@ -1,0 +1,4 @@
+apiVersion: v2
+name: epoch-time-api
+description: A Helm chart for deploying Flask epoch API
+version: 0.1.0
