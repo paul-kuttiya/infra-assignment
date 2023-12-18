@@ -1,3 +1,5 @@
+# Makefile for EKS deployment
+
 .PHONY: create-cluster install-helm get-deployment get-services destroy docker-login docker-build docker-push update_kubeconfig
 
 # public docker repo
