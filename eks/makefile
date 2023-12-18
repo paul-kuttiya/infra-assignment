@@ -4,6 +4,8 @@
 DOCKER_IMAGE_NAME = pkuttiya/epoch-time-api
 DOCKER_IMAGE_TAG = latest
 
+deploy: create-cluster update_kubeconfig install-helm
+
 create-cluster:
 	eksctl create cluster \
 	  --name infra-api \

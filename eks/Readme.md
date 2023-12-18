@@ -43,10 +43,10 @@ Makefile Targets
 cd eks
 ```
 
-### Step 2: Create an EKS Cluster
-Create an Amazon EKS cluster named infra-api in the us-east-1 region with a specified node group.
+### Step 2: Deploy an EKS Cluster and Install Helm
+Set up an Amazon EKS cluster named "infra-api" in the us-east-1 region. A specific node group will be created for the cluster, and Helm will be installed within the default namespace of the cluster nodes.
 ```bash
-make create-cluster
+make deploy
 ```
 
 ### Step 3: Install Helm Chart in EKS

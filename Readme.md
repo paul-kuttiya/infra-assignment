@@ -34,6 +34,7 @@ Before you begin, make sure you have the following tools installed on your local
 - [Terraform](https://www.terraform.io/downloads.html)
 
 #### Makefile Targets
+Run `make` with the specified target below
 | Target                  | Description                                        |
 |-------------------------|----------------------------------------------------|
 | `deploy-serverless`     | Deploys serverless resources.                      |
@@ -55,6 +56,7 @@ Before you begin, ensure that you have the following tools installed on your loc
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) (Kubernetes Command-Line Tool)
 
 #### Makefile Targets
+Run `make` with the specified target below
 | Target                  | Description                                        |
 |-------------------------|----------------------------------------------------|
 | `deploy-eks`            | Deploys EKS resources.                             |
