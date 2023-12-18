@@ -1,2 +1,3 @@
 .terraform*
 terraform.*
+api_endpoint.txt
