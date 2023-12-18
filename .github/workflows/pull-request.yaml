@@ -23,10 +23,6 @@ jobs:
       run: |
         aws sts get-caller-identity
 
-  test:
-    runs-on: ubuntu-latest
-    needs: assume-role
-    steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
@@ -35,7 +31,6 @@ jobs:
         go-version: '>=1.19'
 
     - run: go version
-
 
     - name: Init go mod
       run: |
