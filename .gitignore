@@ -1,3 +1,5 @@
 .terraform*
 terraform.*
 api_endpoint.txt
+.zip
+.mod

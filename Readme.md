@@ -19,7 +19,9 @@ This project is designed to deploy the Flask Epoch API into the cloud, offering 
 | Terraform    | >=1.5.7   |
 
 ## Quick start guide
-> Ensure that you have the necessary AWS permissions, including Administrator access.
+- Clone this repo
+- Ensure that you have the necessary AWS permissions, including Administrator access.
+- cd in the repo directory
 
 ### AWS Serverless Deployment using Terraform:
 Deployment time apx 5 mins
@@ -64,3 +66,22 @@ Run `make` with the specified target below
 
 #### Documentation
 More info: [Documentation](./eks/Readme.md)
+
+
+## CI/CD
+The GitHub Actions workflow is set up to validate Terraform templates for merging pull requests to the main branch. To create a pull request validation, you will need to setup an ARN_OIDC_ROLE in your AWS IAM then save it to GitHub secrets in repo settings.
+
+```bash
+assume-role:
+    name: Assume Role
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ secrets.ARN_OIDC_ROLE }}
+        aws-region: us-east-1
+```
