@@ -1,4 +1,4 @@
-.PHONY: create-cluster install-helm get-deployment get-services destroy docker-login docker-build docker-push
+.PHONY: create-cluster install-helm get-deployment get-services destroy docker-login docker-build docker-push update_kubeconfig
 
 # public docker repo
 DOCKER_IMAGE_NAME = pkuttiya/epoch-time-api
@@ -14,13 +14,16 @@ create-cluster:
 	  --nodes-min 1 \
 	  --nodes-max 3
 
-install-helm:
+update_kubeconfig:
+	aws eks --region us-east-1 update-kubeconfig --name infra-api
+
+install-helm: update_kubeconfig
 	cd helm && helm install epoch-api .
 
-get-deployment:
+get-deployment: update_kubeconfig
 	kubectl get deployment epoch-api
 
-get-services:
+get-services: update_kubeconfig
 	kubectl get services epoch-api
 
 destroy:
@@ -33,6 +36,6 @@ docker-push:
 	docker push $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)
 
 make-request:
-    @ELB=$$(kubectl get service epoch-api -o=jsonpath='{.status.loadBalancer.ingress[0].hostname}{"\n"}'); \
-    echo "ELB Hostname: $$ELB"; \
-    curl $$ELB:8080
+	@ELB=$$(kubectl get service epoch-api -o=jsonpath='{.status.loadBalancer.ingress[0].hostname}{"\n"}'); \
+	echo "ELB Hostname: $$ELB"; \
+	curl $$ELB:8080
