@@ -69,7 +69,7 @@ More info: [Documentation](./eks/Readme.md)
 
 
 ## CI/CD
-The GitHub Actions workflow is set up to validate Terraform templates for merging pull requests to the main branch. To create a pull request, you will need to setup an ARN_OIDC_ROLE in your AWS IAM then save it to GitHub secrets in repo settings.
+The GitHub Actions workflow is set up to validate Terraform templates for merging pull requests to the main branch. To create a pull request validation, you will need to setup an ARN_OIDC_ROLE in your AWS IAM then save it to GitHub secrets in repo settings.
 
 ```bash
 assume-role:
