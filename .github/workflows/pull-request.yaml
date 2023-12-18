@@ -20,8 +20,9 @@ jobs:
     - run: go version
 
 
-    - name: Install Terratest
+    - name: Init go mod
       run: |
+        go mod init infra-test
         go get -u github.com/gruntwork-io/terratest/modules/terraform
 
     - name: Run Tests
