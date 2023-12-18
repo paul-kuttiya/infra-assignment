@@ -27,5 +27,5 @@ jobs:
 
     - name: Run Tests
       run: |
-        cd /serverless
+        cd ./serverless
         make zip && go test -v
