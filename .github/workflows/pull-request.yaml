@@ -13,7 +13,7 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        role-to-assume: ${{ secrets.role_arn }}
+        role-to-assume: ${{ secrets.ARN_ROLE }}
         aws-region: us-east-1
 
     - name: Identity Check
@@ -22,7 +22,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-
+    needs: assume-role
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
