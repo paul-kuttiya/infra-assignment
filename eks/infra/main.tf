@@ -6,14 +6,14 @@ data "aws_vpcs" "default" {
 }
 
 data "aws_subnet" "subnet_a" {
-  count            = length(data.aws_vpcs.default.ids)
-  vpc_id           = data.aws_vpcs.default.ids[count.index]
+  count             = length(data.aws_vpcs.default.ids)
+  vpc_id            = data.aws_vpcs.default.ids[count.index]
   availability_zone = "us-east-1a"
 }
 
 data "aws_subnet" "subnet_b" {
-  count            = length(data.aws_vpcs.default.ids)
-  vpc_id           = data.aws_vpcs.default.ids[count.index]
+  count             = length(data.aws_vpcs.default.ids)
+  vpc_id            = data.aws_vpcs.default.ids[count.index]
   availability_zone = "us-east-1b"
 }
 
@@ -54,7 +54,7 @@ resource "aws_eks_node_group" "my_node_group" {
   cluster_name    = aws_eks_cluster.my_cluster.name
   node_group_name = "${var.cluster_name}-nodegroup"
   node_role_arn   = aws_iam_role.eks_cluster_role.arn
-  subnet_ids = concat(data.aws_subnet.subnet_a[*].id, data.aws_subnet.subnet_b[*].id)
+  subnet_ids      = concat(data.aws_subnet.subnet_a[*].id, data.aws_subnet.subnet_b[*].id)
 
   scaling_config {
     desired_size = 1
