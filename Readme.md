@@ -24,8 +24,6 @@ This project is designed to deploy the Flask Epoch API into the cloud, offering 
 ### AWS Serverless Deployment using Terraform:
 Deployment time apx 5 mins
 
-[Documentation](./serverless/Readme.md)
-
 #### Prerequisites
 
 Before you begin, make sure you have the following tools installed on your local machine:
@@ -41,10 +39,11 @@ Run `make` with the specified target below
 | `make-request-serverless`| Makes a request to the deployed serverless resources. |
 | `destroy-serverless`    | Destroys serverless resources.                     |
 
+#### Documentation
+More info: [Documentation](./serverless/Readme.md)
+
 ### Amazon EKS (Elastic Kubernetes Service) Deployment:
 Deployment time apx 15 mins
-
-[Documentation](./eks/Readme.md)
 
 #### Prerequisites
 Before you begin, ensure that you have the following tools installed on your local machine:
@@ -62,3 +61,6 @@ Run `make` with the specified target below
 | `deploy-eks`            | Deploys EKS resources.                             |
 | `make-request-eks`      | Makes a request to the deployed EKS resources.     |
 | `destroy-eks`           | Destroys EKS resources.                            |
+
+#### Documentation
+More info: [Documentation](./eks/Readme.md)
