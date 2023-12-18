@@ -6,6 +6,20 @@ on:
       - main
 
 jobs:
+  assume-role:
+    name: Assume Role
+    runs-on: ubuntu-latest
+    steps:
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ secrets.role_arn }}
+        aws-region: us-east-1
+
+    - name: Identity Check
+      run: |
+        aws sts get-caller-identity
+
   test:
     runs-on: ubuntu-latest
 
